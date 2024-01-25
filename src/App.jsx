@@ -9,8 +9,10 @@ import Generate from "./pages/Generate.jsx";
 export default function App() {
     return (
         <div className="w-screen h-screen box-border overflow-x-hidden">
-            <Navbar />
+            
             <BrowserRouter>
+
+                <Navbar />
                 <Routes>
                     <Route path="/"  element={<Home />} />
                     <Route path="/login" element={<Login />} />

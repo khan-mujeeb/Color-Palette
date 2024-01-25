@@ -2,7 +2,9 @@ import React from 'react'
 
 const Generate = () => {
   return (
-    <div>Generate</div>
+    <div >
+      
+    </div>
   )
 }
 
