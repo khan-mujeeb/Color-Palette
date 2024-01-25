@@ -20,7 +20,6 @@ export default function App() {
                     <Route path="/generate" element={<Generate />} />
                 </Routes>
             </BrowserRouter>
-            <Footer />
         </div>
     );
 }
