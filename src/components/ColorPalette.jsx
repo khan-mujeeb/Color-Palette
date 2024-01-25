@@ -1,47 +1,40 @@
 import React, { useEffect } from "react";
 import { usePalette } from 'color-thief-react'
 import { useState } from "react";
-import img from "../assets/promotion.webp"
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "./loader/Loader";
 
 const ColorPalette = () => {
 
-    const [selectedImage, setSelectedImage] = useState(null);
-
-    const handleImageChange = (event) => {
-        const file = event.target.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-
-            reader.onload = () => {
-                setSelectedImage(reader.result);
-            };
-
-            reader.readAsDataURL(file);
-        }
-    };
+    const selectedImage = useSelector((state) => state.image.selectedImage);
+    
 
     let crossOrigin = "Anonymous"
     let quality = 10
-    const { data, loading, error } = usePalette(img, 6, "hex", { crossOrigin, quality})
+    const { data, loading, error } = usePalette(selectedImage, 6, "hex", { crossOrigin, quality})
 
-    useEffect(() => {
-        console.log(data)
-        console.log(loading)
-        console.log(error)
-    }
-    , [loading])
+    
     
     return (
         
-        <div className="flex gap-2 justify-center">
-            <div className="bg-green-600 w-40 h-40 rounded-md">vd</div>
-            <div className="bg-yellow-600 w-40 h-40 rounded-md">vd</div>
-            <div className="bg-orange-600 w-40 h-40 rounded-md">vd</div>
-            <div className="bg-purple-600 w-40 h-40 rounded-md">vd</div>
-            <div className="bg-red-600 w-40 h-40 rounded-md">vd</div>
-            <div className="bg-blue-600 w-40 h-40 rounded-md">vd</div>
+        loading ? (<Loader />) 
+        
+        : 
+
+        (
+            <div className="flex gap-2 justify-center">
+                {
+                    data?.map((color, index)=> {
+                        return (
+                            <div key={index} className="hover:shadow-xl transition-all hover:scale-105 cursor-pointer w-40 h-40 rounded-md flex items-end justify-center" style={{backgroundColor: color}}>
+                                <p className="p-1 font-semibold opacity-75 text-center backdrop-blur-md bg-textBg w-full text-black">{color}</p>
+                            </div>
+                        )
+                        })
+                }
+            
         </div>
+        )
     );
 };
 
