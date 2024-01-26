@@ -3,6 +3,7 @@ import ColorPalette from "../../components/ColorPalette.jsx";
 import UploadImageSection from "../../components/UploadImageSection.jsx";
 import promotion from "../../assets/promotion.webp";
 import { useSelector } from "react-redux";
+import AdsenseComponent from "../../hooks/adsense/AdsenseComponent.jsx";
 
 const Generate = () => {
   const selectedImage = useSelector((state) => state.image.selectedImage);
@@ -13,13 +14,10 @@ const Generate = () => {
   return (
     <div
       className="h-[90%] flex flex-col gap-10 justify-center items-center relative"
-      // style={{
-      //   backgroundImage: `url(${selectedImage})`,
-      //   backgroundSize: "cover",
-      //   backgroundPosition: "center",
-      //   backgroundRepeat: "no-repeat",
-      // }}
+      
     >
+
+<AdsenseComponent adClient= {import.meta.env.VITE_APP_AD_CLIENT} adSlot={import.meta.env.VITE_APP_AD_SLOT} adFormat="auto" />
       
 
       {!selectedImage && (

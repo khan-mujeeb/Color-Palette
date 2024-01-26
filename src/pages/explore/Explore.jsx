@@ -1,7 +1,7 @@
 import React from 'react'
 import colors from '../../data/colors'
 import SpaceBarAnimation from '../../components/SpaceBarAnimation.jsx'
-
+import AdsenseComponent from '../../hooks/adsense/AdsenseComponent.jsx'
 const Explore = () => {
 
   const [randomPalette, setRandomPalette] = React.useState(generateRandomPalette());
@@ -20,10 +20,6 @@ const Explore = () => {
 
     return palette;
 }
-
-// Generate and log a random color palette
-// const randomPalette = generateRandomPalette();
-// console.log(randomPalette);
 
 
 React.useEffect(() => {
@@ -50,6 +46,7 @@ React.useEffect(() => {
     <div className='h-[90%] flex flex-col justify-center items-center gap-10 '
     
     >
+      <AdsenseComponent adClient= {import.meta.env.VITE_APP_AD_CLIENT} adSlot={import.meta.env.VITE_APP_AD_SLOT} adFormat="auto" />
       <div className='flex justify-evenly h-[70%]'>
       {
         randomPalette?.map((color, index) => (
