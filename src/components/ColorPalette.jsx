@@ -45,7 +45,7 @@ const ColorPalette = () => {
             {loading ? (
                 <Loader />
             ) : (
-                <div className="flex gap-2 justify-center">
+                <div className="lg:max-3xl:flex lg:max-3xl:gap-2 gap-y-4 gap-x-3 justify-center grid grid-cols-2 sm:grid-cols-3 ">
                     {data?.map((color, index) => {
                         return (
                             <div

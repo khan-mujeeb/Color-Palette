@@ -1,6 +1,6 @@
 import React from 'react'
 import colors from '../../data/colors'
-import SpaceBarAnimation from '../../components/SpaceBarAnimation.jsx'
+import SpaceBarAnimation from '../../components/spaceKey/SpaceBarAnimation.jsx'
 import AdsenseComponent from '../../hooks/adsense/AdsenseComponent.jsx'
 const Explore = () => {
 
@@ -43,21 +43,21 @@ React.useEffect(() => {
 
 
   return (
-    <div className='h-[90%] flex flex-col justify-center items-center gap-10 '
+    <div className='h-[90%] w-full flex flex-col lg:max-3xl:justify-center lg:max-3xl:items-center gap-10 '
     
     >
       <AdsenseComponent adClient= {import.meta.env.VITE_APP_AD_CLIENT} adSlot={import.meta.env.VITE_APP_AD_SLOT} adFormat="auto" />
-      <div className='flex justify-evenly h-[70%]'>
+      <div className='flex w-full lg:max-3xl:flex-row flex-col lg:max-3xl:px-10  h-[70%]'>
       {
         randomPalette?.map((color, index) => (
-          <div key={index} className="flex flex-col gap-2 items-center justify-center h-full">
-            <div className=" w-60 h-full" style={{ backgroundColor: colors[color.category][color.shade] }}></div>
-            <p className="text-xl font-semibold">{color.category} {color.shade}</p>
+          <div key={index} className="flex flex-col gap-5  items-center justify-center w-full h-36 lg:max-3xl:h-full">
+            <div className="w-full h-full" style={{ backgroundColor: colors[color.category][color.shade] }}></div>
+            <p className="lg:max-3xl:block hidden text-xl font-semibold">{color.category} {color.shade}</p>
           </div>
         ))
       }
       </div>
-      <SpaceBarAnimation />
+      <SpaceBarAnimation setRandomPalette={setRandomPalette} generateRandomPalette={generateRandomPalette}/>
     </div>
   )
 }

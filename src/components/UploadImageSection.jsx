@@ -26,7 +26,7 @@ const UploadImageSection = () => {
             <div className="imageSection">
                 {selectedImage && (
                     <img
-                        className="h-96"
+                        className=" lg:max-3xl:h-96"
                         src={selectedImage}
                         alt="Selected"
                     />

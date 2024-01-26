@@ -9,7 +9,10 @@ export default {
     extend: {
       colors: {
         textBg: "#EBE9E9"
-      }
+      },
+      screens: {
+        "3xl": "2000px",
+      },
     },
   },
   plugins: [],

@@ -7,12 +7,14 @@ const Home = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex h-[90%] px-5">
-            <div className="flex flex-col w-[40%] gap-10 justify-center items-center">
-                <h1 className=" text-center text-7xl font-bold">
+        <div className="flex lg:max-3xl:flex-row lg:max-3xl:mt-0 mt-20 flex-col h-[90%] items-center px-5">
+
+            {/* description secction  */}
+            <div className=" flex flex-col lg:max-3xl:w-[40%] gap-10 justify-center items-center px-5">
+                <h1 className=" text-center lg:max-3xl:text-7xl text-3xl font-bold">
                     The superfast Color Palettes generator!
                 </h1>
-                <p className=" text-xl text-center">
+                <p className=" lg:max-3xl:text-xl text-lg text-center">
                     Create the perfect palettes or get inspired by thousands of
                     beautiful color palettes.
                 </p>
@@ -34,8 +36,10 @@ const Home = () => {
                     </button>
                 </div>
             </div>
-            <div className="flex-6 flex justify-center items-center h-full">
-                <img className="" src={headerImg} alt="header image" />
+
+
+            <div className="flex justify-center items-center w-[60%] lg:max-3xl:mt-0 mt-10 ">
+                <img className="w-full lg:max-3xl:w-[90%] lg:max-3xl:h-[70%]" src={headerImg} alt="header image" />
             </div>
         </div>
     );

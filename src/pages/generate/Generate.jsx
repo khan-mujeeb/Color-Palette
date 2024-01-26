@@ -13,7 +13,7 @@ const Generate = () => {
 
   return (
     <div
-      className="h-[90%] flex flex-col gap-10 justify-center items-center relative"
+      className="h-[90%] flex lg:max-3xl:px-0 px-10 flex-col gap-10 justify-center items-center relative"
       
     >
 
@@ -22,8 +22,8 @@ const Generate = () => {
 
       {!selectedImage && (
         <div className="flex flex-col gap-10 items-center justify-center">
-          <img className="h-96" src={promotion} alt="" />
-          <h1 className=" text-5xl text-center font-semibold">
+          <img className=" lg:max-3xl:h-96  " src={promotion} alt="" />
+          <h1 className=" lg:max-3xl:text-5xl text-2xl text-center font-semibold">
             Extract Color Palette from Image
           </h1>
         </div>
