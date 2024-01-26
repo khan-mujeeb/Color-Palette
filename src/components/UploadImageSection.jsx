@@ -24,24 +24,25 @@ const UploadImageSection = () => {
     return (
         <div className="w-full flex justify-center items-center">
             <div className="imageSection">
-                {selectedImage && <img className="h-64 w-96" src={selectedImage} alt="Selected" />}
+                {selectedImage && (
+                    <img
+                        className="h-96"
+                        src={selectedImage}
+                        alt="Selected"
+                    />
+                )}
             </div>
 
-            {
-                !selectedImage && (
-                    <div className="flex h-64 flex-col w-96 shadow-lg  justify-center items-center  rounded-lg gap-8">
-                <input
-                    className="flex gap-2"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                />
-                {/* <button className="text-xl px-5 py-2 roundex-xl bg-blue-600 rounded-sm text-white font-semibold">
-                    Upload
-                </button> */}
-            </div>
-                )
-            }
+            {!selectedImage && (
+                
+                    <input
+                        className="flex gap-2"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageChange}
+                    />
+                
+            )}
         </div>
     );
 };

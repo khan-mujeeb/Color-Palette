@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { usePalette } from "color-thief-react";
 import { useSelector } from "react-redux";
 import Loader from "./loader/Loader";
+import { useDispatch } from "react-redux";
+import { setPalette } from "../store/slice/paletteSlice";
 import { Toaster, toast } from "react-hot-toast";
 
 const ColorPalette = () => {
+    const dispatch = useDispatch();
     const selectedImage = useSelector((state) => state.image.selectedImage);
 
     let crossOrigin = "Anonymous";
@@ -13,6 +16,20 @@ const ColorPalette = () => {
         crossOrigin,
         quality,
     });
+
+    useEffect(() => {
+        if (error && selectedImage!==null) {
+            toast.error("Something went wrong");
+        }
+
+        if (data) {
+            dispatch(setPalette(data));
+        }
+
+
+    }, [error, data]);
+
+    
 
     const handleColorClick = (color) => {
         navigator.clipboard.writeText(color);

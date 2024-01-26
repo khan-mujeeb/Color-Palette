@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
-import Home from "./pages/Home.jsx";
-import Login from "./pages/Login.jsx";
-import Explore from "./pages/Explore.jsx";
-import Generate from "./pages/Generate.jsx";
+import Home from "./pages/home/Home.jsx";
+import Login from "./pages/login/Login.jsx";
+import Explore from "./pages/explore/Explore.jsx";
+import Generate from "./pages/generate/Generate.jsx";
 
 export default function App() {
+    
     return (
         <div className="w-screen h-screen box-border overflow-x-hidden">
             

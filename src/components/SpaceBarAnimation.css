@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+.spacebar {
+    height: 50px;
+    min-width: 50px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: whitesmoke;
+    box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
+    /* background: #131419; */
+    /* box-shadow: 2px 2px 5px rgba(0,0,0,0.5),
+              -3px -3px 7px rgba(255,255,255,0.05); */
+    margin: 10px;
+    color: grey;
+    /* color: #c7c7c7; */
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: default;
+    animation: spacebar 2s linear infinite;
+}
+.spacebar:focus {
+    font-size: 19px;
+    color: #3498db;
+    box-shadow: inset -3px -3px 7px #ffffff73,
+        inset 2px 2px 5px rgba(94, 104, 121, 0.288);
+    /* box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5),
+              inset -3px -3px 7px rgba(255,255,255,0.05); */
+}
+.spacebar[value="SPACEBAR"] {
+    background-color: whitesmoke;
+    width: 30%;
+}
+
+@keyframes spacebar {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
