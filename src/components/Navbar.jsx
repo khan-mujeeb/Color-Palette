@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <nav className='w-full flex justify-between py-2 px-5 z-10 shadow-md items-center'>
-      <h1 className='cursor-pointer' onClick={()=> {navigate('/')}}>Palette</h1>
+      <h1 className='text-2xl font-bold cursor-pointer' onClick={()=> {navigate('/')}}>palette <span className=' font-semibold text-3xl text-blue-700'>Pro</span> </h1>
       <button 
       className={`${styles.button}`}
       onClick={()=> {navigate('/login')}}
