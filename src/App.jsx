@@ -6,7 +6,10 @@ import Login from "./pages/login/Login.jsx";
 import Explore from "./pages/explore/Explore.jsx";
 import Generate from "./pages/generate/Generate.jsx";
 
+
 export default function App() {
+
+    
     
     return (
         <div className="w-screen h-screen box-border overflow-x-hidden">
