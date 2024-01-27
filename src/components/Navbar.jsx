@@ -30,7 +30,7 @@ const Navbar = () => {
                     Pro
                 </span>{" "}
             </h1>
-            {!user && (
+            {!user ? (
                 <button
                     className={`${styles.button}`}
                     onClick={() => {
@@ -39,6 +39,24 @@ const Navbar = () => {
                 >
                     Login
                 </button>
+            ): (
+                <div className="flex gap-10 items-center">
+                    <div
+                    className=" font-semibold text-lg cursor-pointer"
+                    onClick={() => {navigate("/favourite")}}
+                    >Favourite</div>
+
+                    <button
+                    className={`${styles.button}`}
+                    onClick={() => {
+                        auth.signOut();
+                        navigate("/");
+                    }}
+                >
+                    Logout
+                </button>
+                    
+                </div>
             )}
         </nav>
     );

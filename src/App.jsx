@@ -5,7 +5,7 @@ import Home from "./pages/home/Home.jsx";
 import Login from "./pages/login/Login.jsx";
 import Explore from "./pages/explore/Explore.jsx";
 import Generate from "./pages/generate/Generate.jsx";
-
+import Favourite from "./pages/favorait/Favorait.jsx";
 
 export default function App() {
 
@@ -22,6 +22,7 @@ export default function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/explore" element={<Explore />} />
                     <Route path="/generate" element={<Generate />} />
+                    <Route path= "/favourite" element= {<Favourite/>} />
                 </Routes>
             </BrowserRouter>
         </div>
