@@ -13,7 +13,7 @@ const Generate = () => {
 
   return (
     <div
-      className="flex lg:max-3xl:px-0 px-10 flex-col gap-10 justify-center items-center relative"
+      className="flex lg:max-3xl:px-0 px-10 flex-col gap-10 justify-center items-center relative mt-20"
       
     >
 

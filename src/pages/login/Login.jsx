@@ -22,7 +22,7 @@ const Login = () => {
 
 
     return (
-        <div className="flex h-full bg-cyan-50">
+        <div className="flex h-full bg-cyan-50 mt-24">
             <div className="flex flex-1 items-center justify-center">
                 <div className=" bg-white shadow-lg duration-150 flex items-center justify-center gap-3 g-black/[0.05] w-80  text-black hover:text-white py-4 mt-10 rounded-full transition-transform hover:bg-black/[0.8] active:scale-90 cursor-pointer group"
                 onClick={signInWithGoogle}

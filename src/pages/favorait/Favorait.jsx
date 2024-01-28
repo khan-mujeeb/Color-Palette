@@ -25,7 +25,7 @@ const Favorait = () => {
     };
 
     return (
-        <div className=" flex items-center justify-center mt-10 w-full px-10">
+        <div className=" mt-20 flex items-center justify-center w-full px-10">
             <div>
                 <Toaster />
             </div>

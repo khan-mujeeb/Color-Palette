@@ -5,6 +5,7 @@ import Login from "./pages/login/Login.jsx";
 import Explore from "./pages/explore/Explore.jsx";
 import Generate from "./pages/generate/Generate.jsx";
 import Favourite from "./pages/favorait/Favorait.jsx";
+import Footer from "./components/Footer.jsx";
 
 export default function App() {
 
@@ -23,6 +24,7 @@ export default function App() {
                     <Route path="/generate" element={<Generate />} />
                     <Route path= "/favourite" element= {<Favourite/>} />
                 </Routes>
+                <Footer />
             </BrowserRouter>
         </div>
     );

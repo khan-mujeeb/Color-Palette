@@ -45,7 +45,7 @@ React.useEffect(() => {
 
 
   return (
-    <div className='h-[90%] w-full flex flex-col lg:max-3xl:justify-center lg:max-3xl:items-center gap-10 '
+    <div className=' mt-20 h-[90%] w-full flex flex-col lg:max-3xl:justify-center lg:max-3xl:items-center gap-10 '
     
     >
       {/* <AdsenseComponent adClient= {import.meta.env.VITE_APP_AD_CLIENT} adSlot={import.meta.env.VITE_APP_AD_SLOT} adFormat="auto" /> */}
@@ -64,7 +64,7 @@ React.useEffect(() => {
         ))
       }
       </div>
-      <SpaceBarAnimation setRandomPalette={setRandomPalette} generateRandomPalette={generateRandomPalette}/>
+      <SpaceBarAnimation setRandomPalette={setRandomPalette} generateRandomPalette={generateRandomPalette} />
     </div>
   )
 }

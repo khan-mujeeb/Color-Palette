@@ -4,13 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 const Navbar = () => {
     const navigate = useNavigate();
+    const [isMenuHidden, setMenuHidden] = React.useState(true);
+
+    const toggleMenu = () => {
+        setMenuHidden(!isMenuHidden);
+    };
     const [user, setUser] = React.useState(false);
-    
+
     React.useEffect(() => {
         auth.onAuthStateChanged((user) => {
             if (user.uid) {
                 setUser(true);
-
             } else {
                 setUser(false);
             }
@@ -18,46 +22,80 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="w-full flex justify-between py-2 px-5 z-10 shadow-md items-center">
+        <nav className=" z-50 absolute flex flex-wrap items-center justify-between w-full py-2 md:py-4 px-4 text-lg text-gray-700 bg-white shadow-md">
             <h1
-                className="text-2xl font-bold cursor-pointer"
+                className="md:text-2xl text-xl font-bold cursor-pointer"
                 onClick={() => {
                     navigate("/");
                 }}
             >
                 palette{" "}
-                <span className=" font-semibold text-3xl text-blue-700">
+                <span className=" font-semibold md:text-3xl text-2xl text-blue-700">
                     Pro
                 </span>{" "}
             </h1>
-            {!user ? (
-                <button
-                    className={`${styles.button}`}
-                    onClick={() => {
-                        navigate("/login");
-                    }}
-                >
-                    Login
-                </button>
-            ): (
-                <div className="flex gap-10 items-center">
-                    <div
-                    className=" font-semibold text-lg cursor-pointer"
-                    onClick={() => {navigate("/favourite")}}
-                    >Favourite</div>
 
-                    <button
-                    className={`${styles.button}`}
-                    onClick={() => {
-                        auth.signOut();
-                        navigate("/");
-                    }}
-                >
-                    Logout
-                </button>
-                    
-                </div>
-            )}
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                id="menu-button"
+                className="h-6 w-6 cursor-pointer md:hidden block"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                onClick={toggleMenu}
+            >
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                />
+            </svg>
+
+            <div
+                className={`w-full md:flex md:items-center md:w-auto ${
+                    isMenuHidden ? "hidden" : ""
+                }`}
+                id="menu"
+            >
+                <ul className="pt-4 text-base text-gray-700 md:flex md:justify-between md:items-center md:gap-10 md:pt-0">
+                    <li>
+                        {user && (
+                            <div
+                                className=" font-semibold text-lg cursor-pointer"
+                                onClick={() => {
+                                    navigate("/favourite");
+                                }}
+                            >
+                                Favourite
+                            </div>
+                        )}
+                    </li>
+
+                    <li>
+                        {!user ? (
+                            <button
+                                className={`${styles.button}`}
+                                onClick={() => {
+                                    navigate("/login");
+                                }}
+                            >
+                                Login
+                            </button>
+                        ) : (
+                            <button
+                                className={`${styles.button}`}
+                                onClick={() => {
+                                    auth.signOut();
+                                    navigate("/");
+                                }}
+                            >
+                                Logout
+                            </button>
+                        )}
+                    </li>
+                </ul>
+            </div>
         </nav>
     );
 };
