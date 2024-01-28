@@ -7,7 +7,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="flex lg:max-3xl:flex-row lg:max-3xl:mt-0 mt-20 flex-col h-[90%] items-center px-5">
+        <div className="flex lg:max-3xl:flex-row  mt-20 flex-col h-[90%] items-center px-5">
 
             {/* description secction  */}
             <div className=" flex flex-col lg:max-3xl:w-[40%] gap-10 justify-center items-center px-5">

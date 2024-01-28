@@ -7,6 +7,8 @@ const Navbar = () => {
     const [isMenuHidden, setMenuHidden] = React.useState(true);
 
     const toggleMenu = () => {
+        console.log("clicked");
+        console.log(isMenuHidden);
         setMenuHidden(!isMenuHidden);
     };
     const [user, setUser] = React.useState(false);
@@ -21,12 +23,19 @@ const Navbar = () => {
         });
     }, []);
 
+    const onCLickHandler = (path) =>{
+        console.log("clicked");
+        setMenuHidden(true);
+        navigate(path);
+    }
+
     return (
         <nav className=" z-50 absolute flex flex-wrap items-center justify-between w-full py-2 md:py-4 px-4 text-lg text-gray-700 bg-white shadow-md">
             <h1
                 className="md:text-2xl text-xl font-bold cursor-pointer"
                 onClick={() => {
-                    navigate("/");
+                    onCLickHandler("/");
+                    
                 }}
             >
                 palette{" "}
@@ -64,7 +73,8 @@ const Navbar = () => {
                             <div
                                 className=" font-semibold text-lg cursor-pointer"
                                 onClick={() => {
-                                    navigate("/favourite");
+                                    
+                                    onCLickHandler("/favourite");
                                 }}
                             >
                                 Favourite
@@ -77,7 +87,7 @@ const Navbar = () => {
                             <button
                                 className={`${styles.button}`}
                                 onClick={() => {
-                                    navigate("/login");
+                                    onCLickHandler("/login");
                                 }}
                             >
                                 Login
@@ -87,7 +97,7 @@ const Navbar = () => {
                                 className={`${styles.button}`}
                                 onClick={() => {
                                     auth.signOut();
-                                    navigate("/");
+                                    onCLickHandler("/");
                                 }}
                             >
                                 Logout

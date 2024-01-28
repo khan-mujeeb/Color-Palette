@@ -7,16 +7,15 @@ const addToFav = async (code, colorName) => {
 
     try {
         const uid = auth.currentUser.uid;
+        const codePath = code.replaceAll("#", "");
 
-        const favColorsRef = ref(db, `users/${uid}/favColors`);
+        const favColorsRef = ref(db, `users/${uid}/favColors/${codePath}`);
 
-        const newEntryRef = push(favColorsRef);
+        
 
-        const entryId = newEntryRef.key;
+        await set(favColorsRef, color);
 
-        await set(newEntryRef, color);
-
-        console.log("Document successfully written with ID:", entryId);
+        // console.log("Document successfully written with ID:", entryId);
     } catch (error) {
         console.error("Error writing document:", error);
     }
@@ -40,7 +39,6 @@ const getFavColors = async () => {
                 })
             );
 
-            console.log("Fav Colors:", favColorsArray);
             return favColorsArray;
         } else {
             console.log("No fav colors found");
@@ -52,4 +50,21 @@ const getFavColors = async () => {
     }
 };
 
-export { addToFav, getFavColors };
+
+const deleteFavColor = async (color) => {
+
+    const colorPath = color.replaceAll("#", "");
+
+    try {
+        const uid = auth.currentUser.uid;
+
+        const favColorsRef = ref(db, `users/${uid}/favColors/${colorPath}`);
+
+        // Fetch data once
+        await set(favColorsRef, null);
+    } catch (error) {
+        console.error("Error deleting fav color:", error);
+    }
+}
+
+export { addToFav, getFavColors, deleteFavColor };
