@@ -37,7 +37,7 @@ const ColorPalette = () => {
     };
 
     return (
-        <div>
+        <div className=" flex justify-center items-center">
             <div>
                 <Toaster />
             </div>
@@ -51,7 +51,7 @@ const ColorPalette = () => {
                             <div
                                 onClick={() => handleColorClick(color)}
                                 key={index}
-                                className="hover:shadow-xl transition-all hover:scale-105 cursor-pointer w-40 h-40 rounded-md flex items-end justify-center"
+                                className="hover:shadow-xl transition-all hover:scale-105 cursor-pointer  rounded-md flex items-end justify-center lg:max-3xl:w-40 lg:max-3xl:h-40 h-32 w-32 "
                                 style={{ backgroundColor: color }}
                             >
                                 <p className="p-1 font-semibold opacity-75 text-center backdrop-blur-md bg-textBg w-full text-black">

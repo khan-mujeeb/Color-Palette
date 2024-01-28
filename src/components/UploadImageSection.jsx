@@ -22,11 +22,11 @@ const UploadImageSection = () => {
     };
 
     return (
-        <div className="w-full flex justify-center items-center">
+        <div className=" mt-10 w-full flex justify-center items-center">
             <div className="imageSection">
                 {selectedImage && (
                     <img
-                        className=" lg:max-3xl:h-96"
+                        className=" lg:max-3xl:h-96 max-h-96  h-96"
                         src={selectedImage}
                         alt="Selected"
                     />
@@ -36,7 +36,7 @@ const UploadImageSection = () => {
             {!selectedImage && (
                 
                     <input
-                        className="flex gap-2"
+                        className="flex gap-2 "
                         type="file"
                         accept="image/*"
                         onChange={handleImageChange}

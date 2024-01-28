@@ -38,7 +38,7 @@ const Home = () => {
             </div>
 
 
-            <div className="flex justify-center items-center w-[60%] lg:max-3xl:mt-0 mt-10 ">
+            <div className="flex justify-center items-center w-[60%] lg:max-3xl:mt-0 mt-10 lg:max-3xl:hidden ">
                 <img className="w-full lg:max-3xl:w-[90%] lg:max-3xl:h-[70%]" src={headerImg} alt="header image" />
             </div>
         </div>

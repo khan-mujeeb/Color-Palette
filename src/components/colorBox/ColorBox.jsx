@@ -33,7 +33,7 @@ const ColorBox = ({ shades, background, name }) => {
     };
 
     return (
-        <div className="flex flex-col gap-5 items-center justify-center w-full h-36 lg:max-3xl:h-full ">
+        <div className="flex flex-col items-center justify-center  w-full h-36 lg:max-3xl:h-full ">
             <div>
                 <Toaster />
             </div>

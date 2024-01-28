@@ -54,6 +54,7 @@ React.useEffect(() => {
       {
         randomPalette?.map((color, index) => (
           <ColorBox
+          
             key={index}
             shades={Object.values(colors[color.category])}
             
