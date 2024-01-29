@@ -12,7 +12,7 @@ export default function App() {
     
     
     return (
-        <div className="w-screen h-screen box-border overflow-x-hidden">
+        <div className="w-screen h-screen box-border overflow-x-hidden ">
             
             <BrowserRouter>
 

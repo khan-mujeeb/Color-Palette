@@ -10,18 +10,19 @@ const Explore = () => {
 
   function generateRandomPalette() {
     const palette = [];
-
+  
     // Get random colors from each category
     const categories = Object.keys(colors);
     for (let i = 0; i < 6; i++) {
-        const category = categories[Math.floor(Math.random() * categories.length)];
-        const shades = Object.keys(colors[category]);
-        const shade = shades[Math.floor(Math.random() * shades.length)];
-        palette.push({ category, shade });
+      const category = categories[Math.floor(Math.random() * categories.length)];
+      const shades = Object.keys(colors[category]);
+      const shade = shades[Math.floor(Math.random() * shades.length)];
+      palette.push({ category, shade, shades: Object.values(colors[category]) });
     }
-
+  
     return palette;
-}
+  }
+  
 
 
 React.useEffect(() => {
@@ -45,7 +46,7 @@ React.useEffect(() => {
 
 
   return (
-    <div className=' mt-20 h-[90%] w-full flex flex-col lg:max-3xl:justify-center lg:max-3xl:items-center gap-10 '
+    <div className='lg:max-3xl:mt-20 h-[90%] w-full flex flex-col lg:max-3xl:justify-center lg:max-3xl:items-center gap-10 '
     
     >
       {/* <AdsenseComponent adClient= {import.meta.env.VITE_APP_AD_CLIENT} adSlot={import.meta.env.VITE_APP_AD_SLOT} adFormat="auto" /> */}
@@ -56,9 +57,10 @@ React.useEffect(() => {
           <ColorBox
           
             key={index}
-            shades={Object.values(colors[color.category])}
-            
+            shades={color.shades}
+            shadeNames={Object.keys(colors[color.category])}
             background={colors[color.category][color.shade]}
+            category = {color.category}
             name={`${color.category} ${color.shade}`}
         />
         ))

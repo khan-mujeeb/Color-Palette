@@ -1,20 +1,25 @@
 import React from "react";
-import { FaRegHeart } from "react-icons/fa";
 import { FaCopy } from "react-icons/fa6";
 import { IoGridSharp } from "react-icons/io5";
 import { Toaster, toast } from "react-hot-toast";
 import { FaHeart } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa";
 import {addToFav} from "../../firebase/firebaseUtils";
+import { set } from "firebase/database";
 
-const ColorBox = ({ shades, background, name }) => {
+const ColorBox = ({ shades, background, name, shadeNames, category }) => {
     
     const [favColors, setFavColors] = React.useState(false);
     const [showAllShades, setShowAllShades] = React.useState(false);
     const [currentColor, setCurrentColor] = React.useState(background);
+    const [currentName, setCurrentName] = React.useState(name);
 
     React.useEffect(() => {
         setCurrentColor(background);
+        setCurrentName(name);
     }, [shades, background]);
+
+    console.log(shadeNames)
 
     const handleColorClick = (color) => {
         navigator.clipboard.writeText(color);
@@ -28,6 +33,9 @@ const ColorBox = ({ shades, background, name }) => {
 
 
     const favClickHandler = () => {
+        toast("Added to favorites", {
+            icon: "❤️"
+        })
         setFavColors(!favColors);
         addToFav(currentColor, name);
     };
@@ -45,12 +53,13 @@ const ColorBox = ({ shades, background, name }) => {
                             key={index}
                             onClick={() => {
                                 setCurrentColor(shade);
+                                setCurrentName(`${category} ${shadeNames[index]}`);
                                 setShowAllShades(!showAllShades);
                             }}
-                            className="z-50 w-full h-full lg:max-3xl:h-1/6 flex justify-center items-center"
+                            className="z-50 w-full h-full lg:max-3xl:h-1/6 flex justify-center items-center cursor-pointer"
                             style={{ backgroundColor: shade }}
                         >
-                            {background === shade ? (
+                            {currentColor === shade ? (
                                 <p className=" font-semibold lg:max-3xl:block hidden text-md">
                                     Current Color
                                 </p>
@@ -96,7 +105,7 @@ const ColorBox = ({ shades, background, name }) => {
                             {currentColor}
                         </h3>
                         <p className="lg:max-3xl:block hidden text-md">
-                            {name}
+                            {currentName}
                         </p>
                     </div>
                 </div>
