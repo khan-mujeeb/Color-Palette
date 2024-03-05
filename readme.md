@@ -19,11 +19,9 @@ Palettepro is a web app that helps people choose colors for their projects. It l
 
 ## Features
 - Mobile responsive
-- Search Movies and TV series
-- filter based on genres
-- detailed movie about section
-- similar movie recommendation
-- watch movie trailer
+- explore new color
+- generate new color from image
+- save your colors
 
 ## Tech Stack
 - [Redux Toolkit](https://www.npmjs.com/package/@reduxjs/toolkit)
